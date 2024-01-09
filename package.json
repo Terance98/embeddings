@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@xenova/transformers": "^2.13.4"
+  },
+  "name": "embeddings",
+  "description": "This repo holds experiments on embeddings",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Terance98/embeddings.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Terance98/embeddings/issues"
+  },
+  "homepage": "https://github.com/Terance98/embeddings#readme"
+}
