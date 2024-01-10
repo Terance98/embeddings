@@ -1,12 +1,13 @@
 {
   "dependencies": {
-    "@xenova/transformers": "^2.13.4"
+    "@xenova/transformers": "^2.13.4",
+    "chromadb": "^1.7.3",
+    "uuid": "^9.0.1"
   },
   "name": "embeddings",
   "description": "This repo holds experiments on embeddings",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

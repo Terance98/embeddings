@@ -5,24 +5,28 @@ class Embeddings {
     this.embeddingsModelName = embeddingsModelName;
   }
 
-  async generateEmbeddings() {
+  async generateEmbeddings(texts) {
     const { pipeline } = await import("@xenova/transformers");
     const generateEmbeddingsAIModel = await pipeline(
       "feature-extraction",
       this.embeddingsModelName
     );
 
-    const output = await generateEmbeddingsAIModel(
-      "I am interested in the starter plan",
-      {
-        pooling: "mean",
-        normalize: true,
-      }
+    const outputs = await Promise.all(
+      texts.map((text) =>
+        generateEmbeddingsAIModel(text, {
+          pooling: "mean",
+          normalize: true,
+        })
+      )
     );
 
-    return output;
+    const response = outputs.map((item) => [...item.data]);
+
+    return response;
   }
 
+  // Deprecated function - not required when using chroma DB
   dotProduct(a, b) {
     if (a.length !== b.length) {
       throw new Error("Both arguments must have the same length");
@@ -37,6 +41,7 @@ class Embeddings {
     return result;
   }
 
+  // Deprecated function - not required when using chroma DB
   async getSimilarityScore(text1, text2) {
     const output1 = await this.generateEmbeddings(text1);
 
